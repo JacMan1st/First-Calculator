@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import { evaluate } from 'mathjs';
+import './App.css';
 
-function App() {
+const App = () => {
 
 }
 
