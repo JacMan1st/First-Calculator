@@ -5,12 +5,12 @@ import './App.css';
 const App = () => {
 
   const [sum, setSum] = useState("0");
-  const buttons = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "C", "0", ".", "+", "="];
+  const buttons = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "C", "0", ".", "+", "","","", "="];
 
 const handleClick = (string) => {
   if (string === "=") {
-    // replaces the standard operations with tradisional
     try {
+      // replaces the standard operations with tradisional
       let expression = sum.replace(/÷/g, '/').replace(/×/g, '*').replace(/−/g, '-');
       setSum(evaluate(expression));
     } catch (error) {
