@@ -5,22 +5,30 @@ import './App.css';
 const App = () => {
 
   const [sum, setSum] = useState("0");
-  const buttons = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "C", "0", ".", "+", "","","", "="];
+  const buttons = 
+  ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "C", "0", ".", "+", "","","", "="];
 
-const handleClick = (string) => {
+  const handleClick = (string) => {
+
+  // display a message for maximum limit
+    if (sum.length >= 12 && string !== "C") {
+      setSum("      Max 12");
+      return; 
+    }
   if (string === "=") {
     try {
       // replaces the standard operations with tradisional
       let expression = sum.replace(/÷/g, '/').replace(/×/g, '*').replace(/−/g, '-');
       setSum(evaluate(expression));
-    } catch (error) {
+      
       //  display an error message if calculation is invalid
-      setSum("Error");
-    }
-  } else if (string === "C") {
-    setSum("0");
-  } else {
-    setSum((prevSum) => (prevSum === "0" ? string : prevSum + string));
+      } catch (error) {
+        setSum("Error");
+      }
+    } else if (string === "C") {
+      setSum("0");
+    } else {
+      setSum((prevSum) => (prevSum === "0" ? string : prevSum + string));
   }
 };
 
